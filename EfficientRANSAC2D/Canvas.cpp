@@ -105,15 +105,15 @@ void Canvas::detectCurvesLines(int curve_num_iterations, int curve_min_points, f
 	}
 }
 
-void Canvas::generateContours(int curve_num_iterations, int curve_min_points, float curve_max_error_ratio_to_radius, float curve_cluster_epsilon, float curve_min_angle, float curve_min_radius, float curve_max_radius, int line_num_iterations, int line_min_points, float line_max_error, float line_cluster_epsilon, float line_min_length, float line_angle_threshold, float contour_max_error, float contour_angle_threshold, bool bUseSymmetryLine, float iouThreahold, float symmetryWeight, bool bUseRaOpt, float raThreahold, float raWeight, bool bUseParallelOpt, float papallelThreahold, float parallelWeight, bool bUseAccuracyOpt, float accuracyWeight, bool bUseOneLayer, bool bUserLayers)
+void Canvas::generateContours(int curve_num_iterations, int curve_min_points, float curve_max_error_ratio_to_radius, float curve_cluster_epsilon, float curve_min_angle, float curve_min_radius, float curve_max_radius, int line_num_iterations, int line_min_points, float line_max_error, float line_cluster_epsilon, float line_min_length, float line_angle_threshold, float contour_max_error, float contour_angle_threshold, bool bUseSymmetryLine, float iouThreahold, float symmetryWeight, bool bUseRaOpt, float raThreahold, float raWeight, bool bUseParallelOpt, float papallelThreahold, float parallelWeight, bool bUseAccuracyOpt, float accuracyWeight)
 {
 	// optimization for one polygon
-	if (!bUseOneLayer && !bUserLayers){
+	if (false){
 		std::cout << "OPT for polygon" << std::endl;
 		generateContoursPolygon(curve_num_iterations, curve_min_points, curve_max_error_ratio_to_radius, curve_cluster_epsilon, curve_min_angle, curve_min_radius, curve_max_radius, line_num_iterations, line_min_points, line_max_error, line_cluster_epsilon, line_min_length, line_angle_threshold, contour_max_error, contour_angle_threshold, bUseSymmetryLine, iouThreahold, symmetryWeight, bUseRaOpt, raThreahold, raWeight, bUseParallelOpt, papallelThreahold, parallelWeight, bUseAccuracyOpt, accuracyWeight);
 	}
 		// optimization for all polyons in one layer
-	if (bUseOneLayer && !bUserLayers)
+	if (true)
 	{
 		std::cout << "OPT for one layer" << std::endl;
 		generateContoursLayer(curve_num_iterations, curve_min_points, curve_max_error_ratio_to_radius, curve_cluster_epsilon, curve_min_angle, curve_min_radius, curve_max_radius, line_num_iterations, line_min_points, line_max_error, line_cluster_epsilon, line_min_length, line_angle_threshold, contour_max_error, contour_angle_threshold, bUseSymmetryLine, iouThreahold, symmetryWeight, bUseRaOpt, raThreahold, raWeight, bUseParallelOpt, papallelThreahold, parallelWeight, bUseAccuracyOpt, accuracyWeight);

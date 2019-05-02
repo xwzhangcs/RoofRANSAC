@@ -27,10 +27,6 @@ public:
 	float getLineClusterEpsilon();
 	float getLineMinLength();
 	float getLineAngleThreshold();
-	bool getUseRA();
-	float getRAMaxError();
-	float getRAClusterEpsilon();
-	bool getRAOptimization();
 
 	float getContourMaxError();
 	float getContourAngleThreshold();
@@ -50,11 +46,7 @@ public:
 	bool getUseAccuracyOpt();
 	float getAccuracyWeight();
 
-	bool getUseLayers();
-	bool getUseOneLayer();
-
 public slots:
-	void onUseRA();
 	void onOK();
 	void onCancel();
 	void onUseSymmetryLineOpt();

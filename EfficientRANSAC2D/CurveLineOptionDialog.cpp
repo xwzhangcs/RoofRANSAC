@@ -18,16 +18,9 @@ CurveLineOptionDialog::CurveLineOptionDialog(QWidget *parent) : QDialog(parent) 
 	ui.lineEditLineMinLength->setText("30");
 	ui.lineEditAngleThreshold->setText("15");
 
-	ui.checkBoxUseRA->setChecked(false);
-	ui.lineEditRAMaxError->setText("20");
-	ui.lineEditRAClusterEpsilon->setText("20");
-	ui.checkBoxRAOptimization->setChecked(true);
-
-	connect(ui.checkBoxUseRA, SIGNAL(clicked()), this, SLOT(onUseRA()));
 	connect(ui.pushButtonOK, SIGNAL(clicked()), this, SLOT(onOK()));
 	connect(ui.pushButtonCancel, SIGNAL(clicked()), this, SLOT(onCancel()));
 
-	onUseRA();
 }
 
 CurveLineOptionDialog::~CurveLineOptionDialog() {
@@ -83,28 +76,6 @@ float CurveLineOptionDialog::getLineMinLength() {
 
 float CurveLineOptionDialog::getAngleThreshold() {
 	return ui.lineEditAngleThreshold->text().toFloat();
-}
-
-bool CurveLineOptionDialog::getUseRA() {
-	return ui.checkBoxUseRA->isChecked();
-}
-
-float CurveLineOptionDialog::getRAMaxError() {
-	return ui.lineEditRAMaxError->text().toFloat();
-}
-
-float CurveLineOptionDialog::getRAClusterEpsilon() {
-	return ui.lineEditLineClusterEpsilon->text().toFloat();
-}
-
-bool CurveLineOptionDialog::getRAOptimization() {
-	return ui.checkBoxRAOptimization->isChecked();
-}
-
-void CurveLineOptionDialog::onUseRA() {
-	ui.lineEditRAMaxError->setEnabled(ui.checkBoxUseRA->isChecked());
-	ui.lineEditRAClusterEpsilon->setEnabled(ui.checkBoxUseRA->isChecked());
-	ui.checkBoxRAOptimization->setEnabled(ui.checkBoxUseRA->isChecked());
 }
 
 void CurveLineOptionDialog::onOK() {

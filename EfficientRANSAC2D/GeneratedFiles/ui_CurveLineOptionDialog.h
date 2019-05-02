@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
@@ -56,12 +55,6 @@ public:
     QLineEdit *lineEditAngleThreshold;
     QLabel *label_13;
     QLabel *label_15;
-    QCheckBox *checkBoxUseRA;
-    QLineEdit *lineEditRAMaxError;
-    QLabel *label_16;
-    QCheckBox *checkBoxRAOptimization;
-    QLabel *label_17;
-    QLineEdit *lineEditRAClusterEpsilon;
     QPushButton *pushButtonCancel;
     QPushButton *pushButtonOK;
 
@@ -69,7 +62,7 @@ public:
     {
         if (CurveLineOptionDialog->objectName().isEmpty())
             CurveLineOptionDialog->setObjectName(QStringLiteral("CurveLineOptionDialog"));
-        CurveLineOptionDialog->resize(302, 492);
+        CurveLineOptionDialog->resize(302, 394);
         groupBox = new QGroupBox(CurveLineOptionDialog);
         groupBox->setObjectName(QStringLiteral("groupBox"));
         groupBox->setGeometry(QRect(10, 10, 281, 171));
@@ -120,7 +113,7 @@ public:
         label_14->setGeometry(QRect(250, 100, 31, 16));
         groupBox_2 = new QGroupBox(CurveLineOptionDialog);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setGeometry(QRect(10, 190, 281, 241));
+        groupBox_2->setGeometry(QRect(10, 190, 281, 151));
         lineEditLineMinLength = new QLineEdit(groupBox_2);
         lineEditLineMinLength->setObjectName(QStringLiteral("lineEditLineMinLength"));
         lineEditLineMinLength->setGeometry(QRect(140, 100, 101, 20));
@@ -160,30 +153,12 @@ public:
         label_15 = new QLabel(groupBox_2);
         label_15->setObjectName(QStringLiteral("label_15"));
         label_15->setGeometry(QRect(250, 120, 31, 16));
-        checkBoxUseRA = new QCheckBox(groupBox_2);
-        checkBoxUseRA->setObjectName(QStringLiteral("checkBoxUseRA"));
-        checkBoxUseRA->setGeometry(QRect(10, 150, 141, 17));
-        lineEditRAMaxError = new QLineEdit(groupBox_2);
-        lineEditRAMaxError->setObjectName(QStringLiteral("lineEditRAMaxError"));
-        lineEditRAMaxError->setGeometry(QRect(140, 170, 101, 20));
-        label_16 = new QLabel(groupBox_2);
-        label_16->setObjectName(QStringLiteral("label_16"));
-        label_16->setGeometry(QRect(10, 170, 131, 16));
-        checkBoxRAOptimization = new QCheckBox(groupBox_2);
-        checkBoxRAOptimization->setObjectName(QStringLiteral("checkBoxRAOptimization"));
-        checkBoxRAOptimization->setGeometry(QRect(10, 210, 101, 17));
-        label_17 = new QLabel(groupBox_2);
-        label_17->setObjectName(QStringLiteral("label_17"));
-        label_17->setGeometry(QRect(10, 190, 131, 16));
-        lineEditRAClusterEpsilon = new QLineEdit(groupBox_2);
-        lineEditRAClusterEpsilon->setObjectName(QStringLiteral("lineEditRAClusterEpsilon"));
-        lineEditRAClusterEpsilon->setGeometry(QRect(140, 190, 101, 20));
         pushButtonCancel = new QPushButton(CurveLineOptionDialog);
         pushButtonCancel->setObjectName(QStringLiteral("pushButtonCancel"));
-        pushButtonCancel->setGeometry(QRect(170, 450, 91, 31));
+        pushButtonCancel->setGeometry(QRect(170, 354, 91, 31));
         pushButtonOK = new QPushButton(CurveLineOptionDialog);
         pushButtonOK->setObjectName(QStringLiteral("pushButtonOK"));
-        pushButtonOK->setGeometry(QRect(40, 450, 91, 31));
+        pushButtonOK->setGeometry(QRect(40, 354, 91, 31));
         QWidget::setTabOrder(pushButtonOK, pushButtonCancel);
         QWidget::setTabOrder(pushButtonCancel, lineEditCurveNumIterations);
         QWidget::setTabOrder(lineEditCurveNumIterations, lineEditCurveMinPoints);
@@ -223,10 +198,6 @@ public:
         label_12->setText(QApplication::translate("CurveLineOptionDialog", "Max error:", Q_NULLPTR));
         label_13->setText(QApplication::translate("CurveLineOptionDialog", "Angle threshold:", Q_NULLPTR));
         label_15->setText(QApplication::translate("CurveLineOptionDialog", "[deg]", Q_NULLPTR));
-        checkBoxUseRA->setText(QApplication::translate("CurveLineOptionDialog", "Use right angle method", Q_NULLPTR));
-        label_16->setText(QApplication::translate("CurveLineOptionDialog", "Max error:", Q_NULLPTR));
-        checkBoxRAOptimization->setText(QApplication::translate("CurveLineOptionDialog", "Optimization", Q_NULLPTR));
-        label_17->setText(QApplication::translate("CurveLineOptionDialog", "Cluster epsilon:", Q_NULLPTR));
         pushButtonCancel->setText(QApplication::translate("CurveLineOptionDialog", "Cancel", Q_NULLPTR));
         pushButtonOK->setText(QApplication::translate("CurveLineOptionDialog", "OK", Q_NULLPTR));
     } // retranslateUi

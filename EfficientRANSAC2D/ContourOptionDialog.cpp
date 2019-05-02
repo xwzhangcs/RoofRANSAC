@@ -17,10 +17,6 @@ ContourOptionDialog::ContourOptionDialog(QWidget *parent) : QDialog(parent) {
 	ui.lineEditLineClusterEpsilon->setText("20");
 	ui.lineEditLineMinLength->setText("30");
 	ui.lineEditLineAngleThreshold->setText("15");
-	ui.checkBoxUseRA->setChecked(false);
-	ui.lineEditRAMaxError->setText("20");
-	ui.lineEditRAClusterEpsilon->setText("20");
-	ui.checkBoxRAOptimization->setChecked(true);
 
 	ui.lineEditContourMaxError->setText("20");
 	ui.lineEditContourAngleThreshold->setText("10");
@@ -39,9 +35,6 @@ ContourOptionDialog::ContourOptionDialog(QWidget *parent) : QDialog(parent) {
 	ui.checkBoxAccuracy->setChecked(false);
 	ui.lineEditAccuracyWeight->setText("0.25");
 
-	ui.checkBoxUseLayers->setChecked(false);
-	ui.checkBoxUseOneLayer->setChecked(false);
-	connect(ui.checkBoxUseRA, SIGNAL(clicked()), this, SLOT(onUseRA()));
 	connect(ui.checkBoxSymmetryLine, SIGNAL(clicked()), this, SLOT(onUseSymmetryLineOpt()));
 	connect(ui.checkBoxRA, SIGNAL(clicked()), this, SLOT(onUseRaOpt()));
 	connect(ui.checkBoxParallel, SIGNAL(clicked()), this, SLOT(onUseParallelOpt()));
@@ -49,7 +42,6 @@ ContourOptionDialog::ContourOptionDialog(QWidget *parent) : QDialog(parent) {
 	connect(ui.pushButtonCancel, SIGNAL(clicked()), this, SLOT(onCancel()));
 	connect(ui.checkBoxAccuracy, SIGNAL(clicked()), this, SLOT(onUseAccuracyOpt()));
 
-	onUseRA();
 	onUseSymmetryLineOpt();
 	onUseRaOpt();
 	onUseParallelOpt();
@@ -111,22 +103,6 @@ float ContourOptionDialog::getLineAngleThreshold() {
 	return ui.lineEditLineAngleThreshold->text().toFloat();
 }
 
-bool ContourOptionDialog::getUseRA() {
-	return ui.checkBoxUseRA->isChecked();
-}
-
-float ContourOptionDialog::getRAMaxError() {
-	return ui.lineEditRAMaxError->text().toFloat();
-}
-
-float ContourOptionDialog::getRAClusterEpsilon() {
-	return ui.lineEditLineClusterEpsilon->text().toFloat();
-}
-
-bool ContourOptionDialog::getRAOptimization() {
-	return ui.checkBoxRAOptimization->isChecked();
-}
-
 float ContourOptionDialog::getContourMaxError() {
 	return ui.lineEditContourMaxError->text().toFloat();
 }
@@ -178,20 +154,6 @@ bool ContourOptionDialog::getUseAccuracyOpt(){
 
 float ContourOptionDialog::getAccuracyWeight(){
 	return ui.lineEditAccuracyWeight->text().toFloat();
-}
-
-bool ContourOptionDialog::getUseLayers(){
-	return ui.checkBoxUseLayers->isChecked();
-}
-
-bool ContourOptionDialog::getUseOneLayer(){
-	return ui.checkBoxUseOneLayer->isChecked();
-}
-
-void ContourOptionDialog::onUseRA() {
-	ui.lineEditRAMaxError->setEnabled(ui.checkBoxUseRA->isChecked());
-	ui.lineEditRAClusterEpsilon->setEnabled(ui.checkBoxUseRA->isChecked());
-	ui.checkBoxRAOptimization->setEnabled(ui.checkBoxUseRA->isChecked());
 }
 
 void ContourOptionDialog::onUseSymmetryLineOpt() {
