@@ -335,6 +335,16 @@ void Canvas::generateContoursLayer(int curve_num_iterations, int curve_min_point
 				std::cout << "IOU = " << util::calculateIOUbyImage(polygons[i].contour, contours[i], 1000) << std::endl;
 			std::cout << "#vertices = " << contours[i].size() << std::endl;
 			std::cout << "-----------------------" << std::endl;
+			// save as an image
+			cv::Scalar bg_color(0, 0, 0); // black for background
+			cv::Mat output_img(cv::Size(orig_image.width(), orig_image.height()), CV_8UC1, bg_color);
+			std::vector<cv::Point> tmp;
+			for (int j = 0; j < contours[i].size(); j++)
+				tmp.push_back(contours[i][j]);
+			const cv::Point* elementPoints[1] = { &tmp[i] };
+			int numberOfPoints = (int)tmp.size();
+			fillPoly(output_img, elementPoints, &numberOfPoints, 1, cv::Scalar(255, 255, 255), 8);
+			cv::imwrite("../data/test.png", output_img);
 		}
 	}
 }

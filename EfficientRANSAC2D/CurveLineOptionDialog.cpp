@@ -12,10 +12,10 @@ CurveLineOptionDialog::CurveLineOptionDialog(QWidget *parent) : QDialog(parent) 
 	ui.lineEditCurveMaxRadius->setText("400");
 
 	ui.lineEditLineNumIterations->setText("20000");
-	ui.lineEditLineMinPoints->setText("30");
-	ui.lineEditLineMaxError->setText("5");
-	ui.lineEditLineClusterEpsilon->setText("20");
-	ui.lineEditLineMinLength->setText("30");
+	ui.lineEditLineMinPoints->setText("10");
+	ui.lineEditLineMaxError->setText("2");
+	ui.lineEditLineClusterEpsilon->setText("8");
+	ui.lineEditLineMinLength->setText("15");
 	ui.lineEditAngleThreshold->setText("15");
 
 	connect(ui.pushButtonOK, SIGNAL(clicked()), this, SLOT(onOK()));
