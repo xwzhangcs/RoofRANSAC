@@ -30,7 +30,7 @@ bld/
 #wwwroot/
 
 # data
-# data/
+data/
 input/
 input_d3/
 test/
