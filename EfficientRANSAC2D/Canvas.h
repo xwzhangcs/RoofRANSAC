@@ -15,6 +15,7 @@ class Canvas : public QWidget {
 private:
 	QImage orig_image;
 	QImage image;
+	QString img_filename;
 	float image_scale;
 	std::vector<util::Polygon> polygons;
 	std::vector<std::vector<std::pair<int, std::shared_ptr<efficient_ransac::PrimitiveShape>>>> shapes;

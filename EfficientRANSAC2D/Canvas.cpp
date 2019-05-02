@@ -17,6 +17,7 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent) {
 }
 
 void Canvas::loadImage(const QString& filename) {
+	img_filename = filename;
 	orig_image = QImage(filename).convertToFormat(QImage::Format_Grayscale8);
 
 	image_scale = std::min((float)width() / orig_image.width(), (float)height() / orig_image.height());
@@ -344,7 +345,13 @@ void Canvas::generateContoursLayer(int curve_num_iterations, int curve_min_point
 			const cv::Point* elementPoints[1] = { &tmp[i] };
 			int numberOfPoints = (int)tmp.size();
 			fillPoly(output_img, elementPoints, &numberOfPoints, 1, cv::Scalar(255, 255, 255), 8);
-			cv::imwrite("../data/test.png", output_img);
+			int found = img_filename.indexOf(".png");
+			QString output_filename = img_filename.left(found) + "_simplify.png";
+			//std::cout << "found is " << found << std::endl;
+			//std::cout << "img filename is " << img_filename.toUtf8().constData() << std::endl;
+			//std::cout << "output_filename is " << output_filename.toUtf8().constData() << std::endl;
+
+			cv::imwrite(output_filename.toUtf8().constData(), output_img);
 		}
 	}
 }
